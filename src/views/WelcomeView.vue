@@ -9,8 +9,8 @@
               src="https://pic.netbian.com/uploads/allimg/230907/185929-169408436996eb.jpg"/>
   </div>
   <div class="title">
-    <div style="font-size: 30px; font-weight: bold">秒测网速管理后台</div>
-    <div style="font-size: 10px; margin-top: 10px">清华大学软件学院移动云计算与未来网络实验室</div>
+    <div style="font-size: 30px; font-weight: bold">TriGuard-三高助手</div>
+    <div style="font-size: 10px; margin-top: 10px">2023-软件工程课程</div>
   </div>
   <div class="right-card" style="width: 400px; z-index: 1">
     <router-view></router-view>
