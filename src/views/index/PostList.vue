@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  这里是首页
+  这里发布文章
 </template>
 
 <style scoped>

@@ -26,20 +26,35 @@ const router = createRouter({
                     path: '',
                     name: 'IndexPage',
                     component: () => import('@/views/index/IndexPage.vue')
+                },
+                {
+                    path: '/userList',
+                    name: 'UserList',
+                    component: () => import('@/views/index/UserList.vue')
+                },
+                {
+                    path: '/administratorList',
+                    name: 'AdministratorList',
+                    component: () => import('@/views/index/AdministratorList.vue')
+                },
+                {
+                    path: '/postList',
+                    name: 'PostList',
+                    component: () => import('@/views/index/PostList.vue')
                 }
             ]
         }
     ]
 })
 
-router.beforeEach((to, from, next) => {
-    const { isAuthRequired } = to.meta
-    const isUnauthorized = unauthorized()
-    if (isAuthRequired && isUnauthorized) {
-        next('/welcome')
-    } else {
-        next()
-    }
-})
+// router.beforeEach((to, from, next) => {
+//     const { isAuthRequired } = to.meta
+//     const isUnauthorized = unauthorized()
+//     if (isAuthRequired && isUnauthorized) {
+//         next('/welcome')
+//     } else {
+//         next()
+//     }
+// })
 
 export default router

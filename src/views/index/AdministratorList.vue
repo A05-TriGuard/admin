@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  这里是首页
+  这里放管理员列表
 </template>
 
 <style scoped>

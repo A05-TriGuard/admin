@@ -6,7 +6,7 @@
 <div class="welcome-view">
   <div style="flex: 1">
     <el-image style="width: 100%; height: 100%" fit="cover"
-              src="https://pic.netbian.com/uploads/allimg/230907/185929-169408436996eb.jpg"/>
+              src="https://s2.loli.net/2023/12/07/3eGobmAgipuSDcO.jpg"/>
   </div>
   <div class="title">
     <div style="font-size: 30px; font-weight: bold">TriGuard-三高助手</div>

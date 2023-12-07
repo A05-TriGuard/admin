@@ -14,6 +14,18 @@ import { HomeFilled, List } from "@element-plus/icons-vue";
         <el-icon><HomeFilled /></el-icon>
         首页
       </el-menu-item>
+      <el-menu-item index="2" route="/AdministratorList">
+        <el-icon><HomeFilled /></el-icon>
+        管理员列表
+      </el-menu-item>
+      <el-menu-item index="3" route="/UserList">
+        <el-icon><HomeFilled /></el-icon>
+        用户列表
+      </el-menu-item>
+      <el-menu-item index="4" route="/PostList">
+        <el-icon><HomeFilled /></el-icon>
+        发布文章
+      </el-menu-item>
       <el-divider class="el-divider" />
     </el-menu>
   </div>
@@ -44,6 +56,7 @@ import { HomeFilled, List } from "@element-plus/icons-vue";
 
 .navigator-menu .el-menu-item {
   height: 40px;
+  caret-color: rgba(0, 0, 0, 0);
 }
 
 .el-divider {
