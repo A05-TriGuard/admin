@@ -41,6 +41,11 @@ const router = createRouter({
                     path: '/postList',
                     name: 'PostList',
                     component: () => import('@/views/index/PostList.vue')
+                },
+                {
+                    path: '/Edit',
+                    name: 'Edit',
+                    component: () => import('@/views/index/Edit.vue')
                 }
             ]
         }

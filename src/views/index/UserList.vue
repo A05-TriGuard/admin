@@ -35,7 +35,7 @@
   
   <script>
   import { ref } from 'vue';
-  import { ElTable, ElTableColumn, ElButton, ElDialog, ElForm, ElFormItem, ElInput, ElPopconfirm } from 'element-plus';
+  import { ElTable, ElTableColumn, ElButton, ElDialog, ElForm, ElFormItem, ElInput, ElPopconfirm, ElMessageBox } from 'element-plus';
   
   export default {
     components: {
@@ -77,8 +77,10 @@
       });
   
       const handleDelete = (row) => {
-        const index = tableData.value.indexOf(row);
-        tableData.value.splice(index, 1);
+        if(window.confirm("确定要删除该用户吗？")){
+          const index = tableData.value.indexOf(row);
+          tableData.value.splice(index, 1);
+        }
       };
   
       const handleAdd = () => {
@@ -123,6 +125,32 @@
         handleRefresh,
       };
     },
+    methods: {
+      showConfirm(row) {
+        ElMessageBox.confirm('您确定要删除吗？', '提示', {
+          center: true,
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning',
+          center: true
+        }).then(() => {
+          // 用户点击了确定按钮的回调逻辑
+          this.handleDelete(row);
+        }).catch(() => {
+          // 用户点击了取消按钮的回调逻辑
+        });
+      }
+    }
   };
   </script>
+
+<style>
+.el-message-box__wrapper {
+  color: red;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+  </style>
   
