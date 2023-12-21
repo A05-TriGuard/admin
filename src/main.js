@@ -7,7 +7,7 @@ import 'element-plus/theme-chalk/dark/css-vars.css'
 import App from './App.vue'
 import router from './router'
 
-axios.defaults.baseURL = 'http://1.15.30.244:5000'
+axios.defaults.baseURL = 'http://43.138.75.58:8080'
 
 const app = createApp(App)
 

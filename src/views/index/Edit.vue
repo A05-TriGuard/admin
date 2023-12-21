@@ -5,7 +5,7 @@
         <br><br class="inputBlank">
         <el-input v-model="subtitle" class="titleInput" placeholder="请输入副标题"></el-input>
         <br><br>
-        <el-input type="textarea" v-model="content" placeholder="请输入内容" :rows="30"></el-input>
+        <el-input type="textarea" v-model="content" placeholder="请输入内容" :rows="25"></el-input>
         <el-button type="primary" @click="publish">发布</el-button>
         <el-button type="default" @click="saveDraft">保存草稿</el-button>
     </div>
@@ -48,8 +48,5 @@
 .titleInput {
     height: 35px;
     width: 800px;
-}
-.titleInput {
-    height: 40px;
 }
 </style>

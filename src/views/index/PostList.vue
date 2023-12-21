@@ -8,7 +8,7 @@
     <el-table-column prop="id" label="ID"></el-table-column>
     <el-table-column prop="title" label="标题"></el-table-column>
     <el-table-column prop="subtitle" label="副标题"></el-table-column>
-    <el-table-column prop="click" label="浏览量"></el-table-column>
+    <el-table-column prop="time" label="上次修改时间"></el-table-column>
     <el-table-column label="操作">
       <template v-slot="{ row }">
         <el-button type="danger" @click="handleDelete(row)">删除</el-button>
@@ -39,19 +39,19 @@ export default {
         id: 1,
         title: '标题1',
         subtitle: '副标题1',
-        click: 666,
+        time: "2003-12-16-21:00:56",
       },
       {
         id: 2,
         title: '标题2',
         subtitle: '副标题2',
-        click: 667,
+        time: "2003-12-17-21:00:56",
       },
       {
         id: 3,
         title: '标题3',
         subtitle: '副标题3',
-        click: 668,
+        time: "2003-12-18-21:00:56",
       },
     ]);
 
@@ -59,7 +59,7 @@ export default {
       id: '',
       title: '',
       subtitle:'',
-      click: '',
+      time: '',
     });
 
     const handleDelete = (row) => {
