@@ -21,6 +21,7 @@
       ElButton,
     },
     setup() {
+      const token = ref(JSON.parse(sessionStorage.getItem('authToken')));
       const title = ref('');
       const subtitle = ref('');
       const content = ref('');
@@ -34,6 +35,7 @@
       };
   
       return {
+        token,
         title,
         subtitle,
         content,

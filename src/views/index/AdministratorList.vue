@@ -14,7 +14,7 @@ export default {
     }
   },
   mounted() {
-    fetch('http://43.138.75.58:8080/api/admin/account/list')
+    fetch('/api/admin/account/list')
       .then(response => response.json())
       .then(data => {
         this.items = data;

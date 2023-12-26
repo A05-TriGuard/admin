@@ -23,7 +23,7 @@ const router = createRouter({
             meta: { isAuthRequired: true },
             children: [
                 {
-                    path: '',
+                    path: '/home',
                     name: 'IndexPage',
                     component: () => import('@/views/index/IndexPage.vue')
                 },
@@ -46,20 +46,20 @@ const router = createRouter({
                     path: '/Edit',
                     name: 'Edit',
                     component: () => import('@/views/index/Edit.vue')
-                }
+                },
             ]
         }
     ]
 })
 
-// router.beforeEach((to, from, next) => {
-//     const { isAuthRequired } = to.meta
-//     const isUnauthorized = unauthorized()
-//     if (isAuthRequired && isUnauthorized) {
-//         next('/welcome')
-//     } else {
-//         next()
-//     }
-// })
+router.beforeEach((to, from, next) => {
+    const { isAuthRequired } = to.meta
+    const isUnauthorized = unauthorized()
+    if (isAuthRequired && isUnauthorized) {
+        next('/welcome')
+    } else {
+        next()
+    }
+})
 
 export default router

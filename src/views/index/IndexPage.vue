@@ -1,11 +1,23 @@
-<script setup>
-
-</script>
-
 <template>
-  这里是首页
+  <div>
+    欢迎
+  </div>
 </template>
 
-<style scoped>
+<script>
+import { onMounted, ref } from 'vue';
 
-</style>
+export default {
+  setup() {
+    const token = ref(JSON.parse(sessionStorage.getItem('authToken')));
+
+    onMounted(() => {
+      console.log(token.value.token);
+    });
+
+    return {
+      token,
+    };
+  },
+};
+</script>
