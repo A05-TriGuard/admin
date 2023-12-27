@@ -7,17 +7,4 @@
 <script>
 import { onMounted, ref } from 'vue';
 
-export default {
-  setup() {
-    const token = ref(JSON.parse(sessionStorage.getItem('authToken')));
-
-    onMounted(() => {
-      console.log(token.value.token);
-    });
-
-    return {
-      token,
-    };
-  },
-};
 </script>

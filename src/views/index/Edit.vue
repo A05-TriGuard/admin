@@ -21,10 +21,12 @@
       ElButton,
     },
     setup() {
-      const token = ref(JSON.parse(sessionStorage.getItem('authToken')));
+      const auth = ref(JSON.parse(sessionStorage.getItem('authToken')));
+      const token = auth.value.token;
       const title = ref('');
       const subtitle = ref('');
       const content = ref('');
+      //ElMessage.success(auth.value.token)
   
       const publish = () => {
         // 发布文章的逻辑
