@@ -1,11 +1,13 @@
 <template>
   <el-form :model="form" label-width="80px" style="margin-top: 20px;">
     </el-form>
-    <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="id" label="ID"></el-table-column>
-      <el-table-column prop="username" label="昵称"></el-table-column>
-      <el-table-column prop="email" label="email"></el-table-column>
-    </el-table>
+    <div style="overflow: auto; height: 400px;">
+      <el-table :data="tableData" style="width: 100%">
+        <el-table-column prop="id" label="ID"></el-table-column>
+        <el-table-column prop="username" label="昵称"></el-table-column>
+        <el-table-column prop="email" label="email"></el-table-column>
+      </el-table>
+    </div>
 </template>
 
 <script>
@@ -37,6 +39,7 @@ export default {
   setup(props) {
     const auth = ref(JSON.parse(sessionStorage.getItem('authToken')));
     const token = auth.value.token;
+    console.log(token);
     const url = ref('/api/admin/account/list');
     const form = ref({
       id: '',
@@ -49,7 +52,6 @@ export default {
       //tableData.value = response.data;
       tableData.value = response.data.data;
       console.log(response.data.data[0].id);
-      
     })
     .catch((error) => {
       console.error(error);

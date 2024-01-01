@@ -5,7 +5,7 @@ import { HomeFilled, List, Avatar, DocumentAdd, UserFilled } from "@element-plus
 <template>
 <div class="index-view">
   <div class="navigator">
-    <el-menu default-active="/AdministratorList" class="navigator-menu" :router="true">
+    <el-menu default-active=activeIndex class="navigator-menu" :router="true">
       <div style="text-align: center; margin: 10px 0 30px 0">
         <div>TriGuard-三高助手</div>
       </div>
@@ -18,7 +18,7 @@ import { HomeFilled, List, Avatar, DocumentAdd, UserFilled } from "@element-plus
         <el-icon><UserFilled /></el-icon>
         用户列表
       </el-menu-item>
-      <el-menu-item index="/PostList" route="/PostList">
+      <el-menu-item index="/Edit" route="/Edit">
         <el-icon><DocumentAdd /></el-icon>
         发布文章
       </el-menu-item>
@@ -68,12 +68,11 @@ import { HomeFilled, List, Avatar, DocumentAdd, UserFilled } from "@element-plus
 export default {
   data() {
     return {
-      activeIndex: '/AdministratorList',
+      activeIndex: this.$router.path,
     };
   },
   created() {
-    this.$route.path = "/AdministratorList";
-    this.activeIndex = this.$route.path;
+    this.activeIndex = this.$router.path;
     if (sessionStorage.getItem("ifRefresh") == 0){
       window.location.reload();
       sessionStorage.setItem("ifRefresh", 1);

@@ -5,32 +5,14 @@
         <text>&emsp;</text>
         <el-button type="primary" @click="handleSearch">搜索</el-button>
       </el-form-item>
-      <el-form-item label="昵称">
-        <el-input v-model="form.name" style="width: 180px" size="mini"></el-input>
-      </el-form-item>
-      <el-form-item label="手机号">
-        <el-input v-model="form.phone" style="width: 180px" size="mini"></el-input>
-      </el-form-item>
-      <el-form-item label="状态">
-        <el-input v-model="form.phone" style="width: 180px" size="mini"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="handleAdd">添加</el-button>
-        <text>&emsp;</text>
-        <el-button type="primary" @click="handleRefresh">刷新</el-button>
-      </el-form-item>
     </el-form>
-    <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="id" label="ID"></el-table-column>
-      <el-table-column prop="name" label="昵称"></el-table-column>
-      <el-table-column prop="phone" label="手机号"></el-table-column>
-      <el-table-column prop="state" label="状态"></el-table-column>
-      <el-table-column label="操作">
-        <template v-slot="{ row }">
-          <el-button type="danger" @click="handleDelete(row)">删除</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
+    <div style="overflow: auto; height: 500px;">
+      <el-table :data="tableData" style="width: 100%">
+        <el-table-column prop="id" label="ID"></el-table-column>
+        <el-table-column prop="name" label="昵称"></el-table-column>
+        <el-table-column prop="email" label="邮箱"></el-table-column>
+      </el-table>
+    </div>
   </template>
   
   <script>
@@ -50,6 +32,78 @@
     },
     setup() {
       const tableData = ref([
+        {
+          id: 1,
+          name: '张三',
+          phone: '12345678901',
+          state: '在线',
+        },
+        {
+          id: 2,
+          name: '李四',
+          phone: '12345678902',
+          state: '离线',
+        },
+        {
+          id: 3,
+          name: '王五',
+          phone: '12345678903',
+          state: '在线',
+        },
+        {
+          id: 1,
+          name: '张三',
+          phone: '12345678901',
+          state: '在线',
+        },
+        {
+          id: 2,
+          name: '李四',
+          phone: '12345678902',
+          state: '离线',
+        },
+        {
+          id: 3,
+          name: '王五',
+          phone: '12345678903',
+          state: '在线',
+        },
+        {
+          id: 1,
+          name: '张三',
+          phone: '12345678901',
+          state: '在线',
+        },
+        {
+          id: 2,
+          name: '李四',
+          phone: '12345678902',
+          state: '离线',
+        },
+        {
+          id: 3,
+          name: '王五',
+          phone: '12345678903',
+          state: '在线',
+        },
+        {
+          id: 1,
+          name: '张三',
+          phone: '12345678901',
+          state: '在线',
+        },
+        {
+          id: 2,
+          name: '李四',
+          phone: '12345678902',
+          state: '离线',
+        },
+        {
+          id: 3,
+          name: '王五',
+          phone: '12345678903',
+          state: '在线',
+        },
         {
           id: 1,
           name: '张三',
