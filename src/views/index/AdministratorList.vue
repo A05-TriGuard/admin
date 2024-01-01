@@ -49,7 +49,6 @@ export default {
       //tableData.value = response.data;
       tableData.value = response.data.data;
       console.log(response.data.data[0].id);
-      ElMessage.success(response.data.data[0].username);
       
     })
     .catch((error) => {

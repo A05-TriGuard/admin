@@ -22,10 +22,9 @@ const router = createRouter({
             component: () => import('@/views/IndexView.vue'),
             meta: { isAuthRequired: true },
             children: [
-                {
-                    path: '/home',
-                    name: 'IndexPage',
-                    component: () => import('@/views/index/IndexPage.vue')
+                {   path: '/', 
+                    redirect: '/AdministratorList' ,
+                    component: () => import('@/views/index/AdministratorList.vue'),
                 },
                 {
                     path: '/userList',

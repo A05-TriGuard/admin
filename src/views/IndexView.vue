@@ -5,15 +5,11 @@ import { HomeFilled, List, Avatar, DocumentAdd, UserFilled } from "@element-plus
 <template>
 <div class="index-view">
   <div class="navigator">
-    <el-menu :default-active="activeIndex" class="navigator-menu" :router="true">
+    <el-menu default-active="/AdministratorList" class="navigator-menu" :router="true">
       <div style="text-align: center; margin: 10px 0 30px 0">
         <div>TriGuard-三高助手</div>
       </div>
       <el-divider class="el-divider" />
-      <el-menu-item index="/" route="/">
-        <el-icon><HomeFilled /></el-icon>
-        首页
-      </el-menu-item>
       <el-menu-item index="/AdministratorList" route="/AdministratorList">
         <el-icon><Avatar /></el-icon>
         管理员列表
@@ -72,11 +68,16 @@ import { HomeFilled, List, Avatar, DocumentAdd, UserFilled } from "@element-plus
 export default {
   data() {
     return {
-      activeIndex: '',
+      activeIndex: '/AdministratorList',
     };
   },
   created() {
+    this.$route.path = "/AdministratorList";
     this.activeIndex = this.$route.path;
+    if (sessionStorage.getItem("ifRefresh") == 0){
+      window.location.reload();
+      sessionStorage.setItem("ifRefresh", 1);
+    }
   },
 };
 </script>

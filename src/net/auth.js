@@ -27,9 +27,7 @@ function storeAccessToken(remember, token, expire){
         expire: expire
     }
     const str = JSON.stringify(authObj)
-    if(remember)
-        sessionStorage.setItem(authItemName, str)
-    else
+        sessionStorage.setItem("ifRefresh", 0)
         sessionStorage.setItem(authItemName, str)
 }
 
