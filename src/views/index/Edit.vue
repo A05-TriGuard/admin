@@ -50,14 +50,7 @@
       //ElMessage.success(auth.value.token)
       
       const publish = () => {
-        // 发布文章的逻辑
-        const data = JSON.stringify({
-          type: '9',
-          title: title.value,
-          subtitle: subtitle.value,
-          content: content.value
-        });
-        // 发送请求
+        // 发布文章
         axios.post(url_create.value,{
           type: '',
           title: title.value,
