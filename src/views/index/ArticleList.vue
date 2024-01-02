@@ -81,12 +81,13 @@ export default {
     });
 
     const handleDelete = (articleId) => {
-      if(window.confirm("确定要删除该草稿吗？")){
+      if(window.confirm("确定要删除该文章吗？")){
         axios.get(`/api/admin/article/delete?articleId=${articleId}`,
         { headers: { Authorization: `Bearer ${token}` } })
         .then((response) => {
           console.log(response.data);
           ElMessage.success("删除成功！");
+          window.location.reload();
         })
         .catch((error) => {
           console.error(error);
