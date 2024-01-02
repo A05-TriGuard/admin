@@ -4,6 +4,10 @@
         <text>&emsp;&ensp;</text>标题：<el-input v-model="title" class="titleInput" placeholder="请输入标题"></el-input>
         <br><br class="inputBlank">
         <text>&ensp;</text>副标题：<el-input v-model="subtitle" class="titleInput" placeholder="请输入副标题"></el-input>
+        <el-select v-model="type" placeholder="请选择文章类型">
+          <el-option label="Disease" value="disease"></el-option>
+          <el-option label="Science" value="science"></el-option>
+        </el-select>
         <br><br><text>&ensp;内容：</text>
         <el-input type="textarea" v-model="content" placeholder="请输入内容" :rows="25"></el-input>
         <el-button type="primary" @click="publish">发布</el-button>
@@ -14,7 +18,7 @@
   <script>
   import { ref } from 'vue';
   import axios from 'axios';
-  import { ElInput, ElButton, ElMessage } from 'element-plus';
+  import { ElInput, ElButton, ElMessage, ElSelect, ElOption } from 'element-plus';
   import { f, defaultError, get, post, internalGet, internalPost } from "@/net/index";
   import router from "@/router";
   
@@ -22,6 +26,8 @@
     components: {
       ElInput,
       ElButton,
+      ElSelect,
+      ElOption,
     },
     setup() {
       const title = ref('');
@@ -52,7 +58,7 @@
       const publish = () => {
         // 发布文章
         axios.post(url_create.value,{
-          type: '',
+          type: type.value,
           title: title.value,
           subtitle: subtitle.value,
           content: content.value
@@ -72,7 +78,7 @@
               'Content-Type': 'application/x-www-form-urlencoded',
               Authorization : `Bearer ${token}` 
             }
-          }).then(res => {}).catch(err => {console.log(err);});
+          }).then(res => {window.location.reload();}).catch(err => {console.log(err);});
         })
         .catch(err => {
           console.log(err);
@@ -83,7 +89,7 @@
       const saveDraft = () => {
         // 发送请求
         axios.post(url_draft.value,{
-          type: '',
+          type: type.value,
           title: title.value,
           subtitle: subtitle.value,
           content: content.value
@@ -109,6 +115,7 @@
         title,
         subtitle,
         content,
+        type,
         publish,
         saveDraft,
       };
