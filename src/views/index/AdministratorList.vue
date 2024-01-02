@@ -39,7 +39,6 @@ export default {
   setup(props) {
     const auth = ref(JSON.parse(sessionStorage.getItem('authToken')));
     const token = auth.value.token;
-    console.log(token);
     const url = ref('/api/admin/account/list');
     const form = ref({
       id: '',
@@ -51,7 +50,6 @@ export default {
     .then((response) => {
       //tableData.value = response.data;
       tableData.value = response.data.data;
-      console.log(response.data.data[0].id);
     })
     .catch((error) => {
       console.error(error);

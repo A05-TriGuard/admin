@@ -37,9 +37,9 @@ const router = createRouter({
                     component: () => import('@/views/index/AdministratorList.vue')
                 },
                 {
-                    path: '/postList',
-                    name: 'PostList',
-                    component: () => import('@/views/index/PostList.vue')
+                    path: '/articleList',
+                    name: 'ArticleList',
+                    component: () => import('@/views/index/ArticleList.vue')
                 },
                 {
                     path: '/Edit',
