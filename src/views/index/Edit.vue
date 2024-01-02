@@ -9,7 +9,7 @@
       <el-option label="Science" value="science"></el-option>
     </el-select>
     <br><br><text>&ensp;内容：</text>
-    <el-input type="textarea" v-model="content" placeholder="请输入内容" :rows="25"></el-input>
+    <el-input type="textarea" v-model="content" placeholder="请输入内容" :rows="27"></el-input>
     <el-button type="primary" @click="publish">发布</el-button>
     <el-button type="default" @click="saveDraft">保存草稿</el-button>
   </div>
