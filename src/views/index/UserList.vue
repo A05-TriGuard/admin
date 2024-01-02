@@ -4,19 +4,23 @@
         <el-input v-model="form.id" style="width: 180px" size="mini"></el-input>
         <text>&emsp;</text>
         <el-button type="primary" @click="handleSearch">搜索</el-button>
+        <text>&emsp;</text>
+        <el-button type="primary" @click="handleRefresh">返回</el-button>
       </el-form-item>
     </el-form>
-    <div style="overflow: auto; height: 500px;">
+    <div style="overflow: auto; height: 700px;">
       <el-table :data="tableData" style="width: 100%">
         <el-table-column prop="id" label="ID"></el-table-column>
-        <el-table-column prop="name" label="昵称"></el-table-column>
+        <el-table-column prop="username" label="昵称"></el-table-column>
         <el-table-column prop="email" label="邮箱"></el-table-column>
+        <el-table-column prop="role" label="身份"></el-table-column>
       </el-table>
     </div>
   </template>
   
   <script>
   import { ref } from 'vue';
+  import axios from 'axios';
   import { ElTable, ElTableColumn, ElButton, ElDialog, ElForm, ElFormItem, ElInput, ElPopconfirm, ElMessageBox } from 'element-plus';
   
   export default {
@@ -31,127 +35,27 @@
       ElPopconfirm,
     },
     setup() {
-      const tableData = ref([
-        {
-          id: 1,
-          name: '张三',
-          phone: '12345678901',
-          state: '在线',
-        },
-        {
-          id: 2,
-          name: '李四',
-          phone: '12345678902',
-          state: '离线',
-        },
-        {
-          id: 3,
-          name: '王五',
-          phone: '12345678903',
-          state: '在线',
-        },
-        {
-          id: 1,
-          name: '张三',
-          phone: '12345678901',
-          state: '在线',
-        },
-        {
-          id: 2,
-          name: '李四',
-          phone: '12345678902',
-          state: '离线',
-        },
-        {
-          id: 3,
-          name: '王五',
-          phone: '12345678903',
-          state: '在线',
-        },
-        {
-          id: 1,
-          name: '张三',
-          phone: '12345678901',
-          state: '在线',
-        },
-        {
-          id: 2,
-          name: '李四',
-          phone: '12345678902',
-          state: '离线',
-        },
-        {
-          id: 3,
-          name: '王五',
-          phone: '12345678903',
-          state: '在线',
-        },
-        {
-          id: 1,
-          name: '张三',
-          phone: '12345678901',
-          state: '在线',
-        },
-        {
-          id: 2,
-          name: '李四',
-          phone: '12345678902',
-          state: '离线',
-        },
-        {
-          id: 3,
-          name: '王五',
-          phone: '12345678903',
-          state: '在线',
-        },
-        {
-          id: 1,
-          name: '张三',
-          phone: '12345678901',
-          state: '在线',
-        },
-        {
-          id: 2,
-          name: '李四',
-          phone: '12345678902',
-          state: '离线',
-        },
-        {
-          id: 3,
-          name: '王五',
-          phone: '12345678903',
-          state: '在线',
-        },
-      ]);
-  
+      const tableData = ref([]);
+      const auth = ref(JSON.parse(sessionStorage.getItem('authToken')));
+      const token = auth.value.token;
+      console.log(token);
+      const url = ref('/api/admin/account/all');
       const form = ref({
         id: '',
-        name: '',
-        phone: '',
+        username: '',
+        email: '',
+        role: '',
       });
-  
-      const handleDelete = (row) => {
-        if(window.confirm("确定要删除该用户吗？")){
-          const index = tableData.value.indexOf(row);
-          tableData.value.splice(index, 1);
-        }
-      };
-  
-      const handleAdd = () => {
-        if (!form.value.id || !form.value.name || !form.value.phone) {
-          alert('请输入完整的用户信息');
-          return;
-        }
-        const newRow = {
-          id: form.value.id,
-          name: form.value.name,
-          phone: form.value.phone,
-        };
-        tableData.value.push(newRow);
-        form.value.id = '';
-        form.value.name = '';
-        form.value.phone = '';
-      };
+      //从后端获取列表数据
+      axios.get(url.value, { headers: { Authorization: `Bearer ${token}` } })
+      .then((response) => {
+        //tableData.value = response.data;
+        tableData.value = response.data.data;
+        console.log(response.data.data[0].id);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
 
       const handleSearch = () => {
         if (!form.value.id) {
@@ -173,8 +77,6 @@
       return {
         tableData,
         form,
-        handleDelete,
-        handleAdd,
         handleSearch,
         handleRefresh,
       };
