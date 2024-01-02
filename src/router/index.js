@@ -46,6 +46,11 @@ const router = createRouter({
                     name: 'Edit',
                     component: () => import('@/views/index/Edit.vue')
                 },
+                {
+                    path: '/MessageList',
+                    name: 'MessageList',
+                    component: () => import('@/views/index/MessageList.vue')
+                },
             ]
         }
     ]
