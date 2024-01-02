@@ -1,5 +1,5 @@
 <script setup>
-import { HomeFilled, List, Avatar, DocumentAdd, UserFilled } from "@element-plus/icons-vue";
+import { HomeFilled, List, Avatar, DocumentAdd, UserFilled, Document } from "@element-plus/icons-vue";
 </script>
 
 <template>
@@ -23,7 +23,7 @@ import { HomeFilled, List, Avatar, DocumentAdd, UserFilled } from "@element-plus
         发布文章
       </el-menu-item>
       <el-menu-item index="/ArticleList" route="/ArticleList">
-        <el-icon><DocumentAdd /></el-icon>
+        <el-icon><Document /></el-icon>
         文章列表
       </el-menu-item>
       <el-divider class="el-divider" />
