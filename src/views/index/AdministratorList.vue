@@ -1,7 +1,7 @@
 <template>
   <el-form :model="form" label-width="80px" style="margin-top: 20px;">
     </el-form>
-    <div style="overflow: auto; height: 1000px;">
+    <div style="overflow: auto; height: 800px;">
       <el-table :data="tableData" style="width: 100%">
         <el-table-column prop="id" label="ID"></el-table-column>
         <el-table-column prop="username" label="昵称"></el-table-column>

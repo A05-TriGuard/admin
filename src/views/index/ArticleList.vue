@@ -5,26 +5,28 @@
     <el-option label="Disease" value="disease"></el-option>
     <el-option label="Science" value="science"></el-option>
   </el-select>
-  <el-table v-if="type === 'disease'" :data="tableDataDisease" style="width: 100%">
-    <el-table-column prop="id" label="ID"></el-table-column>
-    <el-table-column prop="title" label="标题"></el-table-column>
-    <el-table-column prop="subtitle" label="副标题"></el-table-column>
-    <el-table-column label="操作">
-      <template v-slot="{ row }">
-        <el-button type="danger" @click="handleDelete(row.id)">删除</el-button>
-      </template>
-    </el-table-column>
-  </el-table>
-  <el-table v-if="type === 'science'" :data="tableDataScience" style="width: 100%">
-    <el-table-column prop="id" label="ID"></el-table-column>
-    <el-table-column prop="title" label="标题"></el-table-column>
-    <el-table-column prop="subtitle" label="副标题"></el-table-column>
-    <el-table-column label="操作">
-      <template v-slot="{ row }">
-        <el-button type="danger" @click="handleDelete(row.id)">删除</el-button>
-      </template>
-    </el-table-column>
-  </el-table>
+  <div style="overflow: auto; height: 800px;">
+    <el-table v-if="type === 'disease'" :data="tableDataDisease" style="width: 100%">
+      <el-table-column prop="id" label="ID"></el-table-column>
+      <el-table-column prop="title" label="标题"></el-table-column>
+      <el-table-column prop="subtitle" label="副标题"></el-table-column>
+      <el-table-column label="操作">
+        <template v-slot="{ row }">
+          <el-button type="danger" @click="handleDelete(row.id)">删除</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <el-table v-if="type === 'science'" :data="tableDataScience" style="width: 100%">
+      <el-table-column prop="id" label="ID"></el-table-column>
+      <el-table-column prop="title" label="标题"></el-table-column>
+      <el-table-column prop="subtitle" label="副标题"></el-table-column>
+      <el-table-column label="操作">
+        <template v-slot="{ row }">
+          <el-button type="danger" @click="handleDelete(row.id)">删除</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+  </div>
 </template>
 
 <script>

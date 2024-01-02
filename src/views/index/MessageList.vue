@@ -1,5 +1,5 @@
 <template>
-    <div style="overflow: auto; height: 1000px;">
+    <div style="overflow: auto; height: 800px;">
         <el-table :data="tableData" style="width: 100%">
             <el-table-column prop="momentId" label="动态ID"></el-table-column>
             <el-table-column prop="createdAt" label="举报时间"></el-table-column>
