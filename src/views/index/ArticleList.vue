@@ -88,7 +88,7 @@ export default {
         { headers: { Authorization: `Bearer ${token}` } })
         .then((response) => {
           console.log(response.data);
-          ElMessage.success("删除成功！");
+          window.alert("删除成功！")
           window.location.reload();
         })
         .catch((error) => {
