@@ -70,7 +70,6 @@ export default {
         }
       })
       .then(res => {
-        ElMessage.success("发布成功！")
         //发布成功后清空草稿
         axios.post(url_draft.value,{type: '',title: '',subtitle: '',content: ''},
         {
@@ -78,12 +77,14 @@ export default {
             'Content-Type': 'application/x-www-form-urlencoded',
             Authorization : `Bearer ${token}` 
           }
-        }).then(res => {window.location.reload();}).catch(err => {console.log(err);});
+        }).then(res => {window.location.reload();window.alert("发布成功！")}).catch(err => {console.log(err);});
       })
       .catch(err => {
         console.log(err);
         ElMessage.err("发布失败！")
       });
+      
+      
     };
 
     const saveDraft = () => {
