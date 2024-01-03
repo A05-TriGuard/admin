@@ -45,7 +45,7 @@ export default {
       title.value = response.data.data.title;
       subtitle.value = response.data.data.subtitle;
       content.value = response.data.data.content;
-      type.value = response.data.data.value;
+      type.value = response.data.data.type;
       if(title.value != '' || subtitle.value != '' || content.value != '')
         ElMessage.success("已加载上次保存的草稿");
     })
