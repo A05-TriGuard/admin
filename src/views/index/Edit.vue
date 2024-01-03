@@ -16,11 +16,11 @@
 </template>
   
 <script>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import axios from 'axios';
 import { ElInput, ElButton, ElMessage, ElSelect, ElOption } from 'element-plus';
-import { f, defaultError, get, post, internalGet, internalPost } from "@/net/index";
 import router from "@/router";
+import {useMagicKeys} from '@vueuse/core'
 
 export default {
   components: {
@@ -108,15 +108,31 @@ export default {
         console.log(err);
         ElMessage.err("保存失败！")
       });
-
     };
+    const keys = useMagicKeys({
+          passive: false,
+          onEventFired(e) {
+              e.preventDefault()
+              return false
+          }
+      })
 
+      const ctrls = keys['ctrl+s']
+
+      watch(ctrls, (v) => {
+          if (v) {
+            saveDraft();
+          }
+      })
     return {
       token,
       title,
       subtitle,
       content,
       type,
+      keys,
+      ctrls,
+      watch,
       publish,
       saveDraft,
     };
