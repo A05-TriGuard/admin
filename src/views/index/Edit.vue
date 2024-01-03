@@ -112,8 +112,10 @@ export default {
     const keys = useMagicKeys({
           passive: false,
           onEventFired(e) {
-              e.preventDefault()
-              return false
+            if (e.ctrlKey && e.key === 's') {
+              e.preventDefault();
+              return false;
+        }
           }
       })
 
